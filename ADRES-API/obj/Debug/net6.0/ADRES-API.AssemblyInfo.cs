@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ADRES-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e94e561352ef3d8f4953fab697354bdb7daeaac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ADRES-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ADRES-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
