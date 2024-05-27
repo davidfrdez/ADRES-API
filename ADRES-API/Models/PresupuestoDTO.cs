@@ -12,5 +12,6 @@
         public DateTime FechaDeAdquisicion { get; set; }
         public string Proveedor { get; set; }
         public string Documentacion { get; set; }
+        public int Estado { get; set; }
     }
 }

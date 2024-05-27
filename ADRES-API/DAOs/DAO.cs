@@ -33,7 +33,8 @@ namespace ADRES_API.DAOs
                         Proveedor=presupuesto.Proveedor,
                         Unidad=presupuesto.Unidad,
                         ValorTotal=presupuesto.ValorTotal,
-                        ValorUnitario = presupuesto.ValorUnitario   
+                        ValorUnitario = presupuesto.ValorUnitario  ,
+                        Estado=1,
                     });
                     context.SaveChanges();
                     return StatusCodes.Status200OK;
@@ -52,6 +53,63 @@ namespace ADRES_API.DAOs
                 {
                     var presupuestos = context.Presupuestos.ToList();
                     return presupuestos;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public int GetLogins(Login User)
+         {
+            try
+            {
+                using (var context = _contextFactory.CreateDbContext())
+                {
+                    var presupuestos = context.Login.Where(e=>e.Usuario== User.Usuario && e.PASS ==User.PASS).First();
+                    if (presupuestos ==null)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return StatusCodes.Status200OK;
+                    }
+                    
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public int UpadateStatus(int idE)
+        {
+            try
+            {
+                using (var context = _contextFactory.CreateDbContext())
+                {
+                    var presupuestos = context.Presupuestos.Where(e => e.Id == idE).First();
+                    presupuestos.Estado = 2;
+                    context.SaveChanges();
+                    return StatusCodes.Status200OK;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public int DeletePresupueto(int idE)
+        {
+            try
+            {
+                using (var context = _contextFactory.CreateDbContext())
+                {
+                    var presupuestos = context.Presupuestos.Where(e => e.Id == idE).First();
+                    context.Remove(presupuestos);
+                    context.SaveChanges();
+                    return StatusCodes.Status200OK;
                 }
             }
             catch (Exception)

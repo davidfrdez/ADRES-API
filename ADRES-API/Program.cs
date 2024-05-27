@@ -52,19 +52,42 @@ app.MapGet("/getcredenciales", () =>
         throw e;
     }
 });
+app.MapPost("/Authentication", (Login user) =>
+{
+    try
+    {
+        var dao = new DAO(configuration);
+        return dao.GetLogins(user);
+    }
+    catch (Exception e)
+    {
+        return 0;
+    } 
+});
+app.MapPut("/UpdateStatus", (int Id) =>
+{
+    try
+    {
+        var dao = new DAO(configuration);
+        return dao.UpadateStatus(Id);
+    }
+    catch (Exception e)
+    {
+        return 0;
+    }
+});
+app.MapDelete("/DeletePresupueto", (int Id) =>
+{
+    try
+    {
+        var dao = new DAO(configuration);
+        return dao.DeletePresupueto(Id);
+    }
+    catch (Exception e)
+    {
+        return 0;
+    }
+});
 
-
-//app.MapPost("/postPresupuesto", (PresupuestoDTO data) =>
-//{
-//    try
-//    {
-//        var dao = new DAO(configuration);
-//        return dao.SavePresupuesto(data);
-//    }
-//    catch (Exception e)
-//    {
-//        throw e;
-//    }
-//});
 
 app.Run();

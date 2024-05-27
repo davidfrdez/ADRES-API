@@ -23,6 +23,8 @@ namespace ADRES_API.Models
         }
 
         public DbSet<PresupuestoDTO> Presupuestos { get; set; }
+        public DbSet<Estados> Estados { get; set; }
+        public DbSet<Login> Login { get; set; }
     }
 }
 
